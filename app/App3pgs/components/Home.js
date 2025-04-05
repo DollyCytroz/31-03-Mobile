@@ -1,59 +1,105 @@
 import { StatusBar } from 'expo-status-bar';
-import { SafeAreaView, TouchableOpacity, StyleSheet, Text, View, ImageBackground } from 'react-native';
+import { SafeAreaView, TouchableOpacity, StyleSheet, Text, View, Image, ScrollView } from 'react-native';
 
 export default function Home(props) {
   return (
-    
-      <SafeAreaView style={estilo.container}>
+    <ScrollView style={estilo.container}
+    contentContainerStyle={{ paddingBottom: 80 }} >
+      <StatusBar style="" />
         <View style={estilo.principal}>
-          <Text style={estilo.titulo}> Seu Feed </Text>
-          <Text style={estilo.subtitulo}> Um feed que é a sua cara</Text>
+          <Text style={estilo.titulo}>🎧 Seu Feed</Text>
+          <Text style={estilo.subtitulo}>Um feed que é a sua cara</Text>
         </View>
 
-        <View>
-          <TouchableOpacity style={estilo.button} onPress={() => { props.navigation.navigate('Playlist') }}>
-            <Text style={estilo.textButton}> Playlist </Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={estilo.button} onPress={() => { props.navigation.navigate('Perfil') }}>
-            <Text style={estilo.textButton}> Perfil </Text>
-          </TouchableOpacity>
+        <View> 
+          <Image style={estilo.img} source={require('../assets/GNX.jpg')} />
+          <Text style={estilo.desc}> Kendrick Lamar acaba de lançar GNX!!! </Text>
         </View>
-      </SafeAreaView>
-    
+
+        <View> 
+          <Image style={estilo.img} source={require('../assets/Hit.webp')} />
+          <Text style={estilo.desc}> Billie Elish acaba de Lançar Hit Me Hard And Soft!!!! </Text>
+        </View>
+
+        <View> 
+          <Image style={estilo.img} source={require('../assets/icarus.jpg')} />
+          <Text style={estilo.desc}> BK acaba de lançar Icarus!!!! </Text>
+        </View>
+
+        <View> 
+          <Image style={estilo.img} source={require('../assets/nevermind.jpg')} />
+          <Text style={estilo.desc}> Reveja Nevermind!!!! </Text>
+        </View>
+
+        <View> 
+          <Image style={estilo.img} source={require('../assets/Sunshine.jpg')} />
+          <Text style={estilo.desc}> Ariana Grande acabou de lançar Sunshine!!!! </Text>
+        </View>
+
+        <View> 
+          <Image style={estilo.img} source={require('../assets/damn.jpg')} />
+          <Text style={estilo.desc}> Reveja DAMN.!!!! </Text>
+        </View>
+
+        
+        <View> 
+          <Image style={estilo.img} source={require('../assets/pep.jpg')} />
+          <Text style={estilo.desc}> Veja o albúm postumo de MC Kevin Passado e Presente!!!! </Text>
+        </View>
+
+        <View> 
+          <Image style={estilo.img} source={require('../assets/brat.png')} />
+          <Text style={estilo.desc}> Charli XCX acaba de lançar brat!!!! </Text>
+        </View>
+
+        <View> 
+          <Image style={estilo.img} source={require('../assets/abbey.jpg')} />
+          <Text style={estilo.desc}> Reveja o lendario Abbey Road!!! </Text>
+        </View>
+
+    </ScrollView>
   );
 }
 
 const estilo = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    backgroundColor: '#121212',
+    paddingHorizontal: 20,
+    paddingTop: 50,
+  },
+  principal: {
+    marginBottom: 40,
     alignItems: 'center',
   },
   titulo: {
-    fontSize: 30,
+    fontSize: 36,
+    fontWeight: 'bold',
+    color: '#1DB954', 
+    marginBottom: 8,
+    textShadowColor: 'rgba(0, 0, 0, 0.7)',
+    textShadowOffset: { width: 1, height: 1 },
+    textShadowRadius: 4,
   },
   subtitulo: {
-    fontSize: 20,
+    fontSize: 16,
+    color: '#aaa',
   },
-  button: {
-    margin: 10,
-    padding: 5,
-    backgroundColor: 'yellow',
-    borderRadius: 50, 
-    alignItems: 'center',
-    borderColor: 'black', 
-    borderWidth: 2, 
-  },
-  textButton: {
-    fontSize: 20,
-  },
-  principal: {
-    alignItems: 'center',
-    marginBottom: 50,
+  img: {
+    width: '100%',
+    height: 180,
+    borderRadius: 20,
+    marginBottom: 12,
     borderWidth: 2,
-    padding: 10,
-    backgroundColor: 'green',
-    borderRadius: 50,
-  }
+    borderColor: '#1DB954',
+  },
+  desc: {
+    fontSize: 18,
+    color: '#eee',
+    textAlign: 'center',
+    fontWeight: '500',
+    paddingHorizontal: 10,
+    lineHeight: 24,
+    marginBottom: 20,
+  },
 });
